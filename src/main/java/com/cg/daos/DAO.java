@@ -1,6 +1,6 @@
-package DAOLayer;
-import Beans.ProductStock;
-import Databases.Database;
+package com.cg.daos;
+import com.cg.beans.ProductStock;
+import com.cg.repositories.Database;
 
 public class DAO {
 	public static ProductStock findById(String id) {

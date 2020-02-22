@@ -1,8 +1,8 @@
-package ProductServiceLayer;
+package com.cg.servicesTest;
 
 import java.util.Date;
 
-import Beans.ProductStock;
+import com.cg.beans.ProductStock;
 
 public interface ProductServiceInterface {
 	public String trackProductOrder(ProductStock productStock);

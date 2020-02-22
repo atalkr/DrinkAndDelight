@@ -1,10 +1,11 @@
-package ProductServiceLayer;
+package com.cg.services;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-import Beans.ProductStock;
-import DAOLayer.DAO;
-import ProductServiceLayer.ProductServiceInterface;
+import com.cg.beans.ProductStock;
+import com.cg.daos.DAO;
+import com.cg.services.ProductServiceInterface;
 
 public class ProductServiceImp implements ProductServiceInterface {
 
@@ -19,7 +20,7 @@ public class ProductServiceImp implements ProductServiceInterface {
 	}
 
 	public boolean exitDateCheck(ProductStock productStock) {
-		if (productStock.getExitDate().compareTo(new Date())>0)
+		if (productStock.getExitDate().compareTo(LocalDate.now())<0)
 			return true;
 		return false;
 	}
@@ -29,14 +30,14 @@ public class ProductServiceImp implements ProductServiceInterface {
 		return false;
 	}
 
-	public boolean validateManufacturingDate(Date date) {
-		if(date.compareTo(new Date())>0) return true;
+	public boolean validateManufacturingDate(LocalDate date) {
+		if(date.compareTo(LocalDate.of(2020,02,01))<0) return true;
 		return false;
 	}
 
-	public boolean validateExpiryDate(Date date) {
+	public boolean validateExpiryDate(LocalDate date) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public String updateProductStock(ProductStock productStock) {

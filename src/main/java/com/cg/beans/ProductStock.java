@@ -1,6 +1,6 @@
-package Beans;
+package com.cg.beans;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ProductStock {
 	private String orderId;
@@ -10,25 +10,34 @@ public class ProductStock {
 	private double quantityUnit;
 	private double price;
 	private String warehouseID;
-	private Date deliveryDate;
-	private Date manufacturingDate;
-	private Date expiryDate;
+	private LocalDate deliveryDate;
+	private LocalDate manufacturingDate;
+	private LocalDate expiryDate;
 	private String qualityCheck;
-	private Date processDate;
+	private LocalDate processDate;
 	private int supplierID;
 	private int distributorID;
 	private int rawMaterialId;
 	private boolean deliveryStatus;
-	private Date exitDate;
+	private LocalDate exitDate;
 
 	public ProductStock() {
 		super();
 	}
+	public ProductStock(String orderId, String name, double quantityValue) {
+		super();
+		this.orderId = orderId;
+		this.name = name;
+		this.quantityValue = quantityValue;
+	}
+
+
+
 
 	public ProductStock(String orderId, String name, double price_per_unit, double quantityValue, double quantityUnit,
-			double price, String warehouseID, Date deliveryDate, Date manufacturingDate, Date expiryDate,
-			String qualityCheck, Date processDate, int supplierID, int distributorID, int rawMaterialId,
-			boolean deliveryStatus, Date exitDate) {
+			double price, String warehouseID, LocalDate deliveryDate, LocalDate manufacturingDate, LocalDate expiryDate,
+			String qualityCheck, LocalDate processDate, int supplierID, int distributorID, int rawMaterialId,
+			boolean deliveryStatus, LocalDate exitDate) {
 		super();
 		this.orderId = orderId;
 		this.name = name;
@@ -105,27 +114,27 @@ public class ProductStock {
 		this.warehouseID = warehouseID;
 	}
 
-	public Date getDeliveryDate() {
+	public LocalDate getDeliveryDate() {
 		return deliveryDate;
 	}
 
-	public void setDeliveryDate(Date deliveryDate) {
+	public void setDeliveryDate(LocalDate deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 
-	public Date getManufacturingDate() {
+	public LocalDate getManufacturingDate() {
 		return manufacturingDate;
 	}
 
-	public void setManufacturingDate(Date manufacturingDate) {
+	public void setManufacturingDate(LocalDate manufacturingDate) {
 		this.manufacturingDate = manufacturingDate;
 	}
 
-	public Date getExpiryDate() {
+	public LocalDate getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(LocalDate expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 
@@ -137,11 +146,11 @@ public class ProductStock {
 		this.qualityCheck = qualityCheck;
 	}
 
-	public Date getProcessDate() {
+	public LocalDate getProcessDate() {
 		return processDate;
 	}
 
-	public void setProcessDate(Date processDate) {
+	public void setProcessDate(LocalDate processDate) {
 		this.processDate = processDate;
 	}
 
@@ -177,11 +186,11 @@ public class ProductStock {
 		this.deliveryStatus = deliveryStatus;
 	}
 
-	public Date getExitDate() {
+	public LocalDate getExitDate() {
 		return exitDate;
 	}
 
-	public void setExitDate(Date exitDate) {
+	public void setExitDate(LocalDate exitDate) {
 		this.exitDate = exitDate;
 	}
 
