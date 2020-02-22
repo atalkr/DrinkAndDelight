@@ -3,8 +3,8 @@ package ProductServiceLayer;
 import java.util.Date;
 
 import Beans.ProductStock;
-import ProductServiceLayer.ProductServiceInterface;
 import DAOLayer.DAO;
+import ProductServiceLayer.ProductServiceInterface;
 
 public class ProductServiceImp implements ProductServiceInterface {
 
@@ -19,9 +19,9 @@ public class ProductServiceImp implements ProductServiceInterface {
 	}
 
 	public boolean exitDateCheck(ProductStock productStock) {
-		if (productStock.getExitDate() == null)
-			return false;
-		return true;
+		if (productStock.getExitDate().compareTo(new Date())>0)
+			return true;
+		return false;
 	}
 
 	public boolean updateExitDateinStock(ProductStock productStock) {
@@ -30,7 +30,7 @@ public class ProductServiceImp implements ProductServiceInterface {
 	}
 
 	public boolean validateManufacturingDate(Date date) {
-		// TODO Auto-generated method stub
+		if(date.compareTo(new Date())>0) return true;
 		return false;
 	}
 
@@ -41,7 +41,7 @@ public class ProductServiceImp implements ProductServiceInterface {
 
 	public String updateProductStock(ProductStock productStock) {
 		ProductStock p = DAO.findById(productStock.getOrderId());
-		if (this.validateManufacturingDate(productStock.getManufacturingDate()) == true
+		if (p!=null && this.validateManufacturingDate(productStock.getManufacturingDate()) == true
 				&& this.validateExpiryDate(productStock.getExpiryDate()) == true) {
 			p.setManufacturingDate(productStock.getManufacturingDate());
 			p.setExpiryDate(productStock.getExpiryDate());
