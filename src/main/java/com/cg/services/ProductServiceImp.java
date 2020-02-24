@@ -1,21 +1,27 @@
 package com.cg.services;
 
 import java.time.LocalDate;
-import java.util.Date;
-
 import com.cg.beans.ProductStock;
 import com.cg.daos.DAO;
 import com.cg.services.ProductServiceInterface;
 
 public class ProductServiceImp implements ProductServiceInterface {
 
+	
+	public String setProcessDate(String orderid,LocalDate date) {
+		ProductStock p = DAO.findById(orderid);
+		if(p!=null) {
+			p.setProcessDate(date);
+			return "Process date updated";
+		}
+		return "Error: unable to set process date";
+	}
+
 	public String trackProductOrder(ProductStock productStock) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public boolean doesProductOrderIdExist(String id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -26,7 +32,6 @@ public class ProductServiceImp implements ProductServiceInterface {
 	}
 
 	public boolean updateExitDateinStock(ProductStock productStock) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -36,7 +41,6 @@ public class ProductServiceImp implements ProductServiceInterface {
 	}
 
 	public boolean validateExpiryDate(LocalDate date) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -53,8 +57,7 @@ public class ProductServiceImp implements ProductServiceInterface {
 	}
 
 	public boolean doesProductIdEXistInStock(String id) {
-		// TODO Auto-generated method stub
-		return false;
+				return false;
 	}
 
 

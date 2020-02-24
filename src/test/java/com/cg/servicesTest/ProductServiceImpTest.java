@@ -22,16 +22,17 @@ public class ProductServiceImpTest {
 	
 	@Before
 	public void setup() {
-		ProductServiceImp ps=new ProductServiceImp();
 	
 	}
 	@Test
-	public void validManufacturingDate() {
-		assertEquals(true,psi.validateManufacturingDate(LocalDate.of(2010,02,16)));
+	public void validsetProcessDate() {
+		String s=psi.setProcessDate("87",LocalDate.of(2010,02,16));
+		assertEquals("Process date updated",s);
 	}
 	@Test
-	public void invalidManufacturingDate() {
-		assertEquals(false,psi.validateManufacturingDate(LocalDate.of(2021,01,27)));
+	public void invalidSetProcessDate() {
+		String s=psi.setProcessDate("77",LocalDate.of(2010,02,16));
+		assertEquals("Error: unable to set process date",s);
 }
 	@Test
 	public void errorupdateCheck() {

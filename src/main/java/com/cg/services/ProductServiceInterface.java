@@ -1,8 +1,6 @@
 package com.cg.services;
 
 import java.time.LocalDate;
-import java.util.Date;
-
 import com.cg.beans.ProductStock;
 
 public interface ProductServiceInterface {
@@ -21,5 +19,7 @@ public interface ProductServiceInterface {
 	public String updateProductStock(ProductStock productStock);
 
 	public boolean doesProductIdEXistInStock(String id);
+	
+	public String setProcessDate(String orderid,LocalDate date);
 
 }

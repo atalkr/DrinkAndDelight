@@ -3,8 +3,6 @@ package com.cg.controllersTest;
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
-import java.util.Date;
-
 import org.junit.jupiter.api.Test;
 
 import com.cg.controllers.ProductController;
@@ -13,14 +11,14 @@ public class ProductControllerTest {
 	ProductController pc=new ProductController();
 	
 	@Test
-	public void validexitDateCheck() {
-		String s=pc.exitDateCheck("87",LocalDate.of(2020,02,20));
-		assertEquals("Exit date updated",s);
+	public void validSetProcessDate() {
+		String s=pc.setProcessDate("87",LocalDate.of(2010,02,16));
+		assertEquals("Process date updated",s);
 	}
 	@Test
 	public void invalidexitDateCheck() {
-		String s=pc.exitDateCheck("123",LocalDate.of(2020,02,20));
-		assertEquals("Error : exit method not updated",s);
+		String s=pc.setProcessDate("123",LocalDate.of(2020,02,20));
+		assertEquals("Error: unable to set process date",s);
 	}
 	@Test
 	public void failedupdateStockCheck() {
